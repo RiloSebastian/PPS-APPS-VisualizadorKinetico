@@ -1,0 +1,5 @@
+<ion-slides #slider pager="true">
+    <ion-slide *ngFor="let foto of _fotos; let i = index">
+        <vista-previa-foto [foto]='foto' [usuario]='usuario'></vista-previa-foto>
+    </ion-slide>
+</ion-slides>

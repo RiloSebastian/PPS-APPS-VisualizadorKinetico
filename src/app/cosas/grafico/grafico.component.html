@@ -1,0 +1,10 @@
+<div class="chart">
+    <div class="grafico">
+        <canvas *ngIf='tipo === "lindas"' baseChart [data]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType" height="200" width="200" (chartClick)='chartClicked($event)'></canvas>
+        <canvas *ngIf='tipo === "feas"' baseChart [datasets]="chartDataSets" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType" height="200" width="200" (chartClick)='chartClicked($event)'></canvas>
+    </div>
+</div>
+<div *ngIf='verFoto' class="previa">
+    <ion-icon horizontal='end' size='large' color='light' name="close-outline" (click)='verFoto = false'></ion-icon>
+    <vista-previa-foto [foto]='fotoSeleccionada' [usuario]='usuario'></vista-previa-foto>
+</div>

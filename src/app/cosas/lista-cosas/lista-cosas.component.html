@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color='elemento'>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Cosas {{tipo}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color='fondo' *ngIf='usuario !== null'>
+    <ion-segment color='elemento' scrollable="true" value="fotosGlobales">
+        <ion-segment-button value="fotosGlobales" (click)='cambiarVisibilidad($event.target.value)'>
+            <ion-label>Todas las fotos {{tipo}}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="misFotos" (click)='cambiarVisibilidad($event.target.value)'>
+            <ion-label>Mis fotos {{tipo}}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="grafico" (click)='cambiarVisibilidad($event.target.value)'>
+            <ion-label>Grafico de fotos {{tipo}}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    <div *ngIf='carga === null; else progreso'>
+        <app-tabla-cosas *ngIf='galeria !== "grafico"' [fotos]='fotos' [usuario]='usuario'></app-tabla-cosas>
+        <grafico *ngIf='galeria === "grafico"' [fotos]='fotos' [tipo]='tipo' [usuario]='usuario'></grafico>
+    </div>
+    <ng-template #progreso>
+        <div class='spinner' *ngIf='carga === "spinner"'>
+            <ion-spinner color='primary'></ion-spinner>
+        </div>
+        <div class='barra-progreso' *ngIf='carga === "barra"'>
+            <ion-progress-bar [value]="progresoImagenes"></ion-progress-bar>
+        </div>
+    </ng-template>
+</ion-content>
+<ion-footer *ngIf='galeria === "misFotos"'>
+    <ion-toolbar  color='fondo'>
+        <ion-button color="elemento" expand="block" (click)="nuevaFoto()">
+            Agregar Foto
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

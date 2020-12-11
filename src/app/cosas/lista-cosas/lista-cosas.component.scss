@@ -1,0 +1,20 @@
+.spinner,
+.barra-progreso {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    height: 90%;
+}
+
+.spinner {
+    align-items: center;
+}
+
+.barra-progreso {
+    align-items: baseline;
+}
+
+ion-spinner{
+    height: 100px;
+    width:100px;
+}
