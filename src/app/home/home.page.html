@@ -1,12 +1,12 @@
-<div *ngIf='usuario !== null' class='ion-page' id="main">
-    <ion-header class="header-home">
-        <ion-toolbar align='center' color='elemento'>
-            <ion-title>
-                Relevamiento Visual
-            </ion-title>
-        </ion-toolbar>
-    </ion-header>
-    <ion-content color='fondo'>
+<ion-header class="header-home">
+    <ion-toolbar align='center' color='elemento'>
+        <ion-title>
+            {{usuario.email}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color='fondo'>
+    <div *ngIf='!splash' class='ion-page' id="main">
         <div class='contenido' style="text-align: center; margin-top: 25px;">
             <div style="margin: 10px auto;">
                 <img src="./assets/cosasLindas.png" class="boton azul" height=200px width=200px (click)="verCosas('lindas')">
@@ -17,10 +17,11 @@
                 <figcaption class="figure-caption">Cosas Feas del edificio</figcaption>
             </div>
         </div>
-    </ion-content>
-    <ion-footer>
-        <ion-toolbar color="fondo">
-            <ion-button color='danger' expand='block' (click)='cerrarSesion()'>Cerrar Sesion</ion-button>
-        </ion-toolbar>
-    </ion-footer>
-</div>
+    </div>
+    <img *ngIf='splash' class='spinnerA' src="../../assets/logoMov.png">
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="fondo">
+        <ion-button color='danger' expand='block' (click)='cerrarSesion()'>Cerrar Sesion</ion-button>
+    </ion-toolbar>
+</ion-footer>

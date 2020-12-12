@@ -25,16 +25,11 @@
         <grafico *ngIf='galeria === "grafico"' [fotos]='fotos' [tipo]='tipo' [usuario]='usuario'></grafico>
     </div>
     <ng-template #progreso>
-        <div class='spinner' *ngIf='carga === "spinner"'>
-            <ion-spinner color='primary'></ion-spinner>
-        </div>
-        <div class='barra-progreso' *ngIf='carga === "barra"'>
-            <ion-progress-bar [value]="progresoImagenes"></ion-progress-bar>
-        </div>
+        <img *ngIf='carga === "spinner"' class='spinnerA' src="../../assets/logoMov.png">
     </ng-template>
 </ion-content>
 <ion-footer *ngIf='galeria === "misFotos"'>
-    <ion-toolbar  color='fondo'>
+    <ion-toolbar color='fondo'>
         <ion-button color="elemento" expand="block" (click)="nuevaFoto()">
             Agregar Foto
         </ion-button>
